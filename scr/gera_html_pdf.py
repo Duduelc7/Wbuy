@@ -7,8 +7,6 @@ import os
 from datetime import datetime
 import unicodedata
 
-
-
 def remover_acentos(texto):
     return ''.join(
         c for c in unicodedata.normalize('NFD', texto)
@@ -19,7 +17,6 @@ def limpar_texto_para_codigo128(texto):
     texto = remover_acentos(texto)  
     caracteres_validos = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .,-_/"
     return ''.join(c for c in texto if c in caracteres_validos)
-
 
 def gerar_codigos_barras(pedidos):
     output_dir = "codigo_barras"
@@ -107,12 +104,22 @@ def criar_html_cliente(dados_pedido, nome_arquivo):
         <title>Cartão de Cliente</title>
         <style>
             body {{ font-family: Arial, sans-serif; margin: 20px; }}
-            .card {{ border: 1px solid #000; border-radius: 8px; padding: 20px; width: 400px; height: 250px; overflow: hidden; }}
-            .header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }}
-            .logo {{ font-weight: bold; }}
+            .card {{
+                border: 1px solid #000;
+                border-radius: 8px;
+                padding: 10px;
+                width: 377.95px; /* 10 cm */
+                height: 265.57px; /* 7 cm */
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }}
+            .header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }}
+            .logo {{ font-weight: bold; font-size: 16px; }}
             .pedido {{ font-size: 12px; color: #555; }}
-            .content {{ margin-bottom: 20px; font-size: 14px; line-height: 1.5; }}
-            .obs {{ font-style: italic; color: #555; }}
+            .content {{ font-size: 14px; line-height: 1.5; margin-bottom: 10px; }}
+            .obs {{ font-style: italic; color: #555; font-size: 12px; }}
         </style>
     </head>
     <body>
@@ -158,11 +165,21 @@ def criar_html_produto(dados_pedido, produtos, nome_arquivo):
         <title>Cartão de Produto</title>
         <style>
             body {{ font-family: Arial, sans-serif; margin: 20px; }}
-            .card {{ border: 1px solid #000; border-radius: 8px; padding: 20px; width: 400px; height: 250px; overflow: hidden; }}
-            .header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }}
-            .logo {{ font-weight: bold; }}
+            .card {{
+                border: 1px solid #000;
+                border-radius: 8px;
+                padding: 10px;
+                width: 377.95px; /* 10 cm */
+                height: 265.57px; /* 7 cm */
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }}
+            .header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }}
+            .logo {{ font-weight: bold; font-size: 16px; }}
             .pedido {{ font-size: 12px; color: #555; }}
-            .content {{ margin-bottom: 20px; font-size: 14px; line-height: 1.5; }}
+            .content {{ font-size: 14px; line-height: 1.5; margin-bottom: 10px; }}
         </style>
     </head>
     <body>

@@ -57,11 +57,11 @@ def atualizar_status(pedido_id):
 
 def main():
     print("Iniciando automação...")
-    pedidos = extrair_pedidos(qtd=5)
+    pedidos = extrair_pedidos(qtd=2)
     gera_html_pdf.criar_html_por_pedido(pedidos)
     gera_html_pdf.gerar_codigos_barras(pedidos)
-    consolida_html.combine_html_files()
-    imprime_pedidos.main()
+    #consolida_html.combine_html_files()
+    #imprime_pedidos.main()
     for pedido in pedidos:
         print(pedido["id"], pedido["data"])
     print("Automação concluída com sucesso.")
